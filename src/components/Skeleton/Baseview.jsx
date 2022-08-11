@@ -4,6 +4,8 @@ import { Footer } from './Footer'
 import { NavBar } from './NavBar'
 import { styles } from '../../styles'
 
+import { ReactComponent as hud } from "../../assets/HUD/Vector4.svg"
+import hu from "../../assets/HUD/Vector4.svg"
 
 export const Baseview = ({ children }) =>
 {
@@ -11,6 +13,7 @@ export const Baseview = ({ children }) =>
     <ThemeProvider theme={styles}>
         <Container>
             <Background/>
+            {/* <HUD/> */}
             <NavBar/>
             <PageContent>
                 {children}
@@ -34,7 +37,18 @@ const Background = styled.div`
     height: 100%;
     position: fixed;
     z-index: -1;
-    background: ${props => props.theme.colors.background || "grey"};
+    background-color: ${props => props.theme.colors.background || "grey"};
+    background-image: url(${hu});
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: -4px;
+    left: -4px;
+
+`
+
+const HUD = styled(hud)`
+
 `
 
 const PageContent = styled.div`

@@ -28,14 +28,14 @@ export const ProjectDemo = ({ children }) =>
             });
             setRun(0)
         }
-        else if (runScript < 100)
+        else if (runScript < 50)
         {
             setRun(runScript + 1)
             console.log("HAAAAAAAAa")
         }
     }, [runScript]);
     const handleScript = (e) => {
-      console.log("loaded", window.TEST);
+      console.log("loaded", window.Module);
     };
     return (
         <>
@@ -66,20 +66,17 @@ blah bla blah blah blah
      <Helmet>
               <script
                 // type='text/plain'
-                src="https://cdn.jsdelivr.net/gh/LumenNoctis/Shape_detect/draw.js"/>
+                src="https://cdn.jsdelivr.net/gh/Compute-Progress/Rush/draw.js"/>
                 
                 <script>
-          {`
-            console.log('Test', window.TEST);
-          `}
-        </script>
+                    console.log('Test', window.Module);
+            </script>
           </Helmet>
           {/* <button onClick={() =>console.log(window.TEST)}/> */}
         </>
         
     )
 }
-
 
 const Column = styled.div`
     display: flex;
@@ -92,7 +89,7 @@ const Canvas = styled.canvas`
     width: 100%;
     border: 20px solid #78787863;
     // aspect-ratio: 1/1;
-    height: 100%;
+    height:80%;
 `
 
 const ProjectName = styled.div`

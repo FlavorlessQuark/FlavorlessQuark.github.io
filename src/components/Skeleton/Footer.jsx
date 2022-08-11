@@ -4,6 +4,7 @@ import { ReactComponent as emailSVG} from "../../assets/email.svg"
 import { ReactComponent as githubSVG} from "../../assets/github.svg"
 import { ReactComponent as linkedinSVG} from "../../assets/linkedin.svg"
 
+import Background from "../../assets/HUD/TopContainer.svg"
 
 export const Footer = () =>
 {
@@ -12,6 +13,7 @@ export const Footer = () =>
 
     return (
         <Container>
+            <Bg src={Background}/>
             <SocialContainer>
                 {
                     links.map((elem) =>
@@ -33,6 +35,12 @@ const Container = styled.div`
     bottom: 0;
 
     width: 100%;
+
+`
+
+
+const Bg = styled.img`
+    width:8%;
 `
 
 const SocialContainer = styled.div`

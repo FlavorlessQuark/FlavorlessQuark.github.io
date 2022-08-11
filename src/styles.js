@@ -1,17 +1,18 @@
 export const styles = {
     colors: {
 
-        background: "#1E1E23",
-        primary : "#4C9B0E",
+        background: "#101315",
+        primary : "#00D8E5",
         secondary:"#4BC5C5",
-        highlight:"#4AE315",
-        shadow:"#103201",
+        highlight:"#FFCB9A",
+        shadow:"#3D898D",
+        detail:"#B0ACB0"
     },
     text: {
         title:"var()",
         // links:,
         // text:,
     },
-    font:'Source Code Pro',
+    font:'Iceland',
     mobile: 600
 }
