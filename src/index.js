@@ -7,7 +7,7 @@ import WebFont from "webfontloader";
 const root = ReactDOM.createRoot(document.getElementById('root'))
 WebFont.load({
   google: {
-      families: ['Poppins', "Saira:300,700", "Source Code Pro:500,400,700"]
+      families: ['Poppins', "Saira:300,700", "Source Code Pro:500,400,700", "Iceland"]
   }
 });
 root.render(

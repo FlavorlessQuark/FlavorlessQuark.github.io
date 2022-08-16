@@ -4,7 +4,8 @@ import { ReactComponent as emailSVG} from "../../assets/email.svg"
 import { ReactComponent as githubSVG} from "../../assets/github.svg"
 import { ReactComponent as linkedinSVG} from "../../assets/linkedin.svg"
 
-import Background from "../../assets/HUD/TopContainer.svg"
+import { ReactComponent as hudContainer} from "../../assets/HUD/IconContainer.svg"
+// import Background from "../../assets/HUD/IconContainer.svg"
 
 export const Footer = () =>
 {
@@ -13,7 +14,8 @@ export const Footer = () =>
 
     return (
         <Container>
-            <Bg src={Background}/>
+            <Bg/>
+            {/* <Bg src={Background}/> */}
             <SocialContainer>
                 {
                     links.map((elem) =>
@@ -21,7 +23,6 @@ export const Footer = () =>
                     )
                 }
             </SocialContainer>
-            <Delimeter/>
         </Container>
     )
 }
@@ -29,7 +30,7 @@ export const Footer = () =>
 const Container = styled.div`
     display: flex;
     flex-direction: row;
-    
+
     position: fixed;
     left: 0;
     bottom: 0;
@@ -39,35 +40,40 @@ const Container = styled.div`
 `
 
 
-const Bg = styled.img`
-    width:8%;
+const Bg = styled(hudContainer)`
+	position: absolute;
+	z-index: -1;
+	top: -35%;
+	left: -3px;
 `
 
 const SocialContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 8%;
-    min-width: 50px;
-    max-width: 110px;
+	position: relative;
+	align-items: end;
+	justify-content: space-around;
+	top: -10px;
+	left: 10px;
 `
 const Github = styled(githubSVG)`
     display: flex;
-    width: 85%;
+    width: 84%;
     stroke: ${props => props.theme.colors.highlight};
-    padding: 5% 0px;
+    // padding: 5% 0px;
 `
 const Linkedin = styled(linkedinSVG)`
     display: flex;
-    width: 85%;
+    width: 84%;
     stroke: ${props => props.theme.colors.highlight};
-    padding: 5% 0px;
+    // padding: 5% 0px;
 `
 const Email = styled(emailSVG)`
     display: flex;
-    width: 85%;
+    width: 84%;
     stroke: ${props => props.theme.colors.highlight};
-    padding: 5% 0px;
+    // padding: 5% 0px;
 `
 
 const Delimeter = styled.div`
