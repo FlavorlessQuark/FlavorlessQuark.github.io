@@ -10,16 +10,17 @@ import { ReactComponent as hudContainer} from "../../assets/HUD/IconContainer.sv
 export const Footer = () =>
 {
     const [active, setActive] = useState("Resume");
-    const links = [["/", <Github/>], ["/", <Linkedin/>], ["/", <Email/>]]
+    const links = [["https://github.com/FlavorlessQuark", <Github />], ["https://www.linkedin.com/in/johanna-josephine-7a91b01b6", <Linkedin/>], ["mailto:jjosephi.dev@google.com", <Email/>]]
 
     return (
         <Container>
             <Bg/>
-            {/* <Bg src={Background}/> */}
             <SocialContainer>
                 {
                     links.map((elem) =>
-                    elem[1]
+					<a href={elem[0]}>
+                    {elem[1]}
+					</a>
                     )
                 }
             </SocialContainer>
@@ -38,7 +39,6 @@ const Container = styled.div`
     width: 100%;
 
 `
-
 
 const Bg = styled(hudContainer)`
 	position: absolute;
@@ -60,19 +60,16 @@ const SocialContainer = styled.div`
 const Github = styled(githubSVG)`
     display: flex;
     width: 84%;
-    stroke: ${props => props.theme.colors.highlight};
     // padding: 5% 0px;
 `
 const Linkedin = styled(linkedinSVG)`
     display: flex;
     width: 84%;
-    stroke: ${props => props.theme.colors.highlight};
     // padding: 5% 0px;
 `
 const Email = styled(emailSVG)`
     display: flex;
     width: 84%;
-    stroke: ${props => props.theme.colors.highlight};
     // padding: 5% 0px;
 `
 

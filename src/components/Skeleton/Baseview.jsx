@@ -67,7 +67,6 @@ const HUD_Right = styled(right)`
 	margin-left: -5px;
 `
 
-
 const Background = styled.div`
     display:flex;
 
@@ -102,7 +101,6 @@ const Background = styled.div`
 
 const PageContent = styled.div`
     display: flex;
-    width: 75%;
-    margin: auto;
-    height: 100%;
+    width: 100%;
+    padding: 100px 100px 0px 100px;
 `
