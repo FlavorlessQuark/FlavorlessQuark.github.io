@@ -5,10 +5,10 @@ import { Title } from '../StyledComponents'
 
 import pdf from "../../assets/Resume.pdf"
 
-const Resume = () =>
+const Resume = ({ innerRef }) =>
 {
 	return (
-		<Container>
+		<Container ref={innerRef}>
 			<Title style={{textAlign: "center", alignSelf:"center"}}>
 					Resume
 			</Title>
@@ -26,6 +26,7 @@ const Container = styled.div`
 	align-items: flex-start;
 	justify-content: space-between;
 	height: fit-content;
+	scroll-margin-top: 130px;
 `
 const PDF = styled.iframe`
 	display: block;

@@ -5,7 +5,7 @@ import { Title, Link } from '../StyledComponents'
 import { ReactComponent as C } from '../../assets/icons/C.svg'
 import { ReactComponent as Python } from '../../assets/icons/Python.svg'
 
-const Showcase = () =>
+const Showcase = ({ innerRef }) =>
 {
 	const projects = {
 		"Edge detection": {
@@ -31,7 +31,7 @@ const Showcase = () =>
 	}
 
 	return (
-		<Container>
+		<Container ref={innerRef}>
 			<Title style={{textAlign: "center", alignSelf:"center"}}>
 					Showcase
 			</Title>
@@ -137,6 +137,7 @@ const Container = styled.div`
 	justify-content: space-between;
 	height: fit-content;
 	margin: 50px 0px;
+	scroll-margin-top: 50px;
 `
 const WrappedRow = styled.div`
 	display: flex;

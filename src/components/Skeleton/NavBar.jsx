@@ -22,6 +22,7 @@ export const NavBar = () =>
     const [show , setShow] = useState(false)
     const options = ["home", "projects", "contact"]
 	const links = [["https://github.com/FlavorlessQuark", <Github />], ["https://www.linkedin.com/in/johanna-josephine-7a91b01b6", <Linkedin/>], ["mailto:jjosephi.dev@google.com", <Email/>]]
+
 	const {width} = useDisplaySize();
 
 	if (width <= styles.mobile)
@@ -59,7 +60,6 @@ export const NavBar = () =>
 	else return (
 		<>
 		<TopContainer>
-			{/* <div style={{display:"flex", position:"absolute"}}/> */}
 			{
 				options.map((elem) =>
 					location === ("/" + elem) ?
@@ -77,7 +77,6 @@ export const NavBar = () =>
 	)
 
 }
-
 
 const StyledX = styled(Xicon)`
 	display: flex;

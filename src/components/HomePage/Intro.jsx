@@ -2,10 +2,10 @@ import React from 'react'
 import styled, { ThemeProvider } from "styled-components"
 import { Title } from '../StyledComponents'
 
-const Intro = ({ children }) =>
+const Intro = ({ innerRef }) =>
 {
 	return (
-		<Container>
+		<Container ref={innerRef}>
 			<div>
 				<Title style={{maxWidth:"450px"}}>
 					Hello World!
@@ -33,13 +33,12 @@ const Container = styled.div`
 	display:flex;
 	flex-direction: column;
 	width: 100%;
-	// padding: 80px;
 	align-items: flex-start;
 	justify-content: space-between;
 	gap: 20px;
-	// height: calc(100vh - 200px);
 	margin: 10px;
 	min-height: 720px;
+	scroll-margin-top: 120px;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		gap: 20px;
 		margin: 0px;
