@@ -39,9 +39,11 @@ const Container = styled.div`
 	gap: 20px;
 	// height: calc(100vh - 200px);
 	margin: 10px;
+	min-height: 720px;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		gap: 20px;
 		margin: 0px;
+		min-height: 680px;
 		// margin-top: 40px;
 	}
 `
