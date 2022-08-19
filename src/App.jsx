@@ -13,16 +13,16 @@ import { ProjectDemo } from "./views/ProjectDemo";
 const App = () => {
 
   return (
-    <Baseview>
     <Router>
+		<Baseview>
       <Routes>
         {/* <Route path="/test2" element={<Route1/>}/> */}
-        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/test" element={<ProjectDemo/>}/>
         <Route path="/test2" element={<Route1/>}/>
       </Routes>
+		</Baseview>
     </Router>
-    </Baseview>
   );
 }
 

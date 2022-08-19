@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import styled, { ThemeProvider } from "styled-components"
-import { ReactComponent as emailSVG} from "../../assets/email.svg"
-import { ReactComponent as githubSVG} from "../../assets/github.svg"
-import { ReactComponent as linkedinSVG} from "../../assets/linkedin.svg"
+import { ReactComponent as emailSVG} from "../../assets/icons/email.svg"
+import { ReactComponent as githubSVG} from "../../assets/icons/github.svg"
+import { ReactComponent as linkedinSVG} from "../../assets/icons/linkedin.svg"
 
 import { ReactComponent as hudContainer} from "../../assets/HUD/IconContainer.svg"
 // import Background from "../../assets/HUD/IconContainer.svg"
@@ -18,7 +18,7 @@ export const Footer = () =>
             <SocialContainer>
                 {
                     links.map((elem) =>
-					<a href={elem[0]}>
+					<a href={elem[0]} key={elem[0]}>
                     {elem[1]}
 					</a>
                     )
@@ -36,8 +36,12 @@ const Container = styled.div`
     left: 0;
     bottom: 0;
 
-    width: 100%;
+    width: 100px;
 
+	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+		left: -57px;
+	}
+	z-index: 0;
 `
 
 const Bg = styled(hudContainer)`
@@ -54,28 +58,34 @@ const SocialContainer = styled.div`
 	position: relative;
 	align-items: end;
 	justify-content: space-around;
-	top: -10px;
-	left: 10px;
+	top: -13px;
+	left: 23px;
+
+	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+		left: 57px;
+	}
 `
 const Github = styled(githubSVG)`
     display: flex;
     width: 84%;
     // padding: 5% 0px;
+	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+		width: 60%;
+	}
 `
 const Linkedin = styled(linkedinSVG)`
     display: flex;
     width: 84%;
     // padding: 5% 0px;
+	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+		width: 60%;
+	}
 `
 const Email = styled(emailSVG)`
     display: flex;
     width: 84%;
     // padding: 5% 0px;
-`
-
-const Delimeter = styled.div`
-    display: flex;
-
-    width: 3px;
-    background: ${props => props.theme.colors.primary};
+	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+		width: 60%;
+	}
 `

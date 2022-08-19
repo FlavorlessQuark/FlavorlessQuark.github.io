@@ -4,7 +4,7 @@ export const styles = {
         background: "#101315",
         primary : "#00D8E5",
         secondary:"#B0ACB0",
-        highlight:"#FFCB9A",
+        highlight:"#07D74F;",
         shadow:"#3D898D",
     },
     text: {
@@ -13,5 +13,5 @@ export const styles = {
         // text:,
     },
     font:'Iceland',
-    mobile: 600
+    mobile: 850
 }
