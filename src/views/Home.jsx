@@ -4,12 +4,16 @@ import styled from "styled-components"
 import Intro from '../components/HomePage/Intro'
 import Resume from '../components/HomePage/Resume'
 import Showcase from '../components/HomePage/Showcase'
+import useIsVisible from '../components/useIsVisible'
 
 export const Home = ({ children }) =>
 {
 	const introRef= useRef(null);
 	const resumeRef= useRef(null);
 	const showRef= useRef(null);
+	const isIntroVisible = useIsVisible(introRef)
+	const isResumeVisible = useIsVisible(resumeRef)
+	const isShowVisible = useIsVisible(showRef)
 
 	const doScroll = (ref) =>
 	{
@@ -20,9 +24,10 @@ export const Home = ({ children }) =>
     return (
 		<Container>
 			<div style={{position:"fixed", zIndex: "42"}}>
-			<button onClick={()=> doScroll(introRef)}> to intro</button>
-			<button onClick={()=> doScroll(resumeRef)}> to resume</button>
-			<button onClick={()=> doScroll(showRef)}> to showcase</button>
+
+			{ !isIntroVisible && <button onClick={()=> doScroll(introRef)} > to intro</button>}
+			{ !isResumeVisible && <button onClick={()=> doScroll(resumeRef)}> to resume</button>}
+			{ !isShowVisible && <button onClick={()=> doScroll(showRef)}> to showcase</button>}
 
 			</div>
 			<Intro innerRef={introRef}/>

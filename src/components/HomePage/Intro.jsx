@@ -5,9 +5,9 @@ import { Title } from '../StyledComponents'
 const Intro = ({ innerRef }) =>
 {
 	return (
-		<Container ref={innerRef}>
+		<Container >
 			<div>
-				<Title style={{maxWidth:"450px"}}>
+				<Title ref={innerRef} style={{maxWidth:"450px", scrollMarginTop: "150px"}} >
 					Hello World!
 				</Title>
 			</div>
@@ -37,7 +37,7 @@ const Container = styled.div`
 	justify-content: space-between;
 	gap: 20px;
 	margin: 10px;
-	min-height: 720px;
+	min-height: 770px;
 	scroll-margin-top: 120px;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		gap: 20px;

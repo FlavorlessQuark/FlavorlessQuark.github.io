@@ -187,7 +187,7 @@ const Row = styled.div`
 	font-family: Iceland;
 	right: ${props => props.show ? "0%" : "-100%"};
 	transition: all 0.5s;
-	z-index:1;
+	z-index:2;
 `
 const Text = styled.div`
 	display:flex;

@@ -8,8 +8,8 @@ import pdf from "../../assets/Resume.pdf"
 const Resume = ({ innerRef }) =>
 {
 	return (
-		<Container ref={innerRef}>
-			<Title style={{textAlign: "center", alignSelf:"center"}}>
+		<Container >
+			<Title ref={innerRef} style={{textAlign: "center", alignSelf:"center", scrollMarginTop: "150px"}}>
 					Resume
 			</Title>
 			<PDF id="resumepdf" src={pdf} frameborder="0" scrolling="yes" seamless="seamless"></PDF>
@@ -23,10 +23,10 @@ const Container = styled.div`
 	display:flex;
 	flex-direction: column;
 	width: 100%;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: space-between;
 	height: fit-content;
-	scroll-margin-top: 130px;
+	min-height: 75vh;
 `
 const PDF = styled.iframe`
 	display: block;

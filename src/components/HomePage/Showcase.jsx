@@ -31,8 +31,8 @@ const Showcase = ({ innerRef }) =>
 	}
 
 	return (
-		<Container ref={innerRef}>
-			<Title style={{textAlign: "center", alignSelf:"center"}}>
+		<Container >
+			<Title ref={innerRef} style={{textAlign: "center", alignSelf:"center"}}>
 					Showcase
 			</Title>
 			<Text>These are what I consider to be my best projects</Text>
