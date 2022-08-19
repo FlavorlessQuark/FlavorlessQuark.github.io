@@ -41,7 +41,7 @@ const Container = styled.div`
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		left: -57px;
 	}
-	z-index: 0;
+	z-index: 1;
 `
 
 const Bg = styled(hudContainer)`

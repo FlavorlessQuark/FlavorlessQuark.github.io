@@ -125,6 +125,7 @@ const Line = styled.div`
 	 background: ${props => props.theme.colors.background};
 	//  background: rgb(16,19,21);
 	 box-shadow: 0 0 11px 7px #101315;
+	 z-index: 1;
 `
 
 const TopContainer = styled.div`
@@ -186,6 +187,7 @@ const Row = styled.div`
 	font-family: Iceland;
 	right: ${props => props.show ? "0%" : "-100%"};
 	transition: all 0.5s;
+	z-index:1;
 `
 const Text = styled.div`
 	display:flex;
