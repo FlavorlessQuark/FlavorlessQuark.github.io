@@ -11,6 +11,7 @@ import { Baseview } from './components/Skeleton/Baseview';
 import { Home } from "./views/Home";
 import { Contact } from "./views/Contact";
 import { ProjectDemo } from "./views/ProjectDemo";
+import Page404 from "./views/404";
 const App = () => {
 
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Route path="/home" element={<Home/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/project/:name" element={<ProjectDemo/>}/>
-        <Route path="/test2" element={<Route1/>}/>
+        <Route path="/*" element={<Page404/>}/>
       </Routes>
 		</Baseview>
     </Router>
