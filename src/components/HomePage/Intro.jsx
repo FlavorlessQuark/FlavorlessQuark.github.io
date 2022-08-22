@@ -61,7 +61,7 @@ const FlexText = styled.div`
 const Text = styled.div`
 	display:flex;
 	font-size:48px;
-	color: ${props =>props.theme.colors.shadow};
+	color: ${props =>props.theme.colors.primary};
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		// color: blue;
 		font-size: 32px;

@@ -42,7 +42,7 @@ const HUD = styled.div`
 	position:fixed;
 	width: 100vw;
 	pointer-events: none;
-	z-index:1;
+	z-index: 1;
 `
 
 const HUD_Left = styled(left)`
@@ -107,5 +107,5 @@ const PageContent = styled.div`
 		margin: 65px 50px 0px 61px;
 	}
 	position: absolute;
-	z-index: 0;
+	// z-index: -1;
 `

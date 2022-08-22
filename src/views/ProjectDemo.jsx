@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import styled from "styled-components"
 import { Helmet } from 'react-helmet';
+import { useParams } from 'react-router-dom';
+import { Title } from '../components/StyledComponents';
+import Page404 from './404'
 
+import {projectsData }from './projectsData';
 // Here we will get the projects dynamically
 // They should all be located in the Wasync organization
 // First we will check if the url params correspon to a repo by checking github
@@ -15,73 +19,92 @@ import { Helmet } from 'react-helmet';
 // Lastly we will fetch the js script with : "https://cdn.jsdelivr.net/gh/Wasync/[repo]/[script url (not including branch)]"
 export const ProjectDemo = ({ children }) =>
 {
+	const {name} = useParams()
     const [runScript, setRun] = useState(1);
+
+
     useEffect(() => {
         if (setRun && window.Module)
         {
+            setRun(0)
             console.log("loaded");
             window.Module({
                 canvas: (() => document.getElementById('canvas'))(),
             })
             .then(() => {
-                console.log("loaded");
+                console.log("Done");
             });
-            setRun(0)
         }
         else if (runScript < 50)
         {
             setRun(runScript + 1)
-            console.log("HAAAAAAAAa")
+            console.log("Script not loaded")
         }
     }, [runScript]);
-    const handleScript = (e) => {
-      console.log("loaded", window.Module);
-    };
-    return (
-        <>
+
+
+	if (!(name in projectsData))
+		return <Page404/>
+	else
+		return (
+        <Container>
      <Column>
-        <ProjectName> PLACEHOLDER </ProjectName>
+        <Title style={{marginTop: "-30px"}}> {projectsData[name].name} </Title>
         <Canvas id="canvas"/>
-        <Controls>Controls : [Tab]: switch between visualize and draw mode [Space] In draw mode, calculate the lines [Left / right arrow] In visualize mode, adjust sensitivity </Controls>
-        <Divider>&#8964;</Divider>
-        <ProjectName>PLACEHOLDER</ProjectName>
+        <Controls>
+			<Text>Controls :</Text>
+			{
+				projectsData[name].controls.map((elem) =>
+					<Text>{"["+elem[0]+"] : " + elem[1]}</Text>
+				)
+			}
+			{/* <Text>[Tab]: switch between visualize and draw mode </Text>
+			<Text>[Space] In draw mode, calculate the lines</Text>
+			<Text>[Left / right arrow] In visualize mode, adjust sensitivity</Text> */}
+		</Controls>
+		<Source href={projectsData[name].link}> Source Code </Source>
+        <ProjectName>About this project</ProjectName>
         <ProjectDesc>
-        Porjects I made  bla blah blah blah bla blah blah blah
- bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla 
-blah blah blah bla blah blah blah
- bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah 
-blah bla blah blah blah
-Porjects I made  bla blah blah blah bla blah blah blah
- bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla 
-blah blah blah bla blah blah blah
- bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah 
-blah bla blah blah blah
-Porjects I made  bla blah blah blah bla blah blah blah
- bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla 
-blah blah blah bla blah blah blah
- bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah blah bla blah blah 
-blah bla blah blah blah
+			{projectsData[name].description}
         </ProjectDesc>
      </Column>
      <Helmet>
-              <script
-                // type='text/plain'
-                src="https://cdn.jsdelivr.net/gh/Compute-Progress/Rush/draw.js"/>
-                
-                <script>
-                    console.log('Test', window.Module);
-            </script>
+              <script src={projectsData[name].src}/>
+
           </Helmet>
           {/* <button onClick={() =>console.log(window.TEST)}/> */}
-        </>
-        
+        </Container>
+
     )
 }
+const Container = styled.div`
+	display:flex;
+	flex-direction: column;
+	gap: 10px;
+
+	width: 100%;
+	font-family: 'Iceland';
+	align-items: center;
+`
 
 const Column = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+	font-family: Iceland;
+	gap: 10px;
+	padding: 0px 50px;
+	width: 90%;
+`
+
+const Text = styled.div`
+	display:flex;
+	padding: 10px;
+`
+const Source = styled.a`
+	display:flex;
+	cursor: pointer;
+	color: #B54E4E;
 `
 
 const Canvas = styled.canvas`
@@ -89,35 +112,45 @@ const Canvas = styled.canvas`
     width: 100%;
     border: 20px solid #78787863;
     // aspect-ratio: 1/1;
-    height:80%;
+    // height:80%;
+	max-height: 580px;
+	@media (max-device-width : ${props =>props.theme.mobile}px) {
+		max-width: 80%;
+	}
 `
 
 const ProjectName = styled.div`
     display: flex;
     color: ${props => props.theme.colors.secondary};
-    padding: 20px;
-    font-family: Source Code Pro;
+	font-size: 48px;
+	text-align: center;
+	@media (max-device-width : ${props => props.theme.mobile}px)
+	{
+		font-size: 36px;
+	}
 `
 
 const Controls = styled.div`
-    color: white;
-    font-family: Source Code Pro;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    color: ${props => props.theme.colors.secondary};
     padding: 10px;
-    align-self:baseline;
-`
-
-const Divider = styled.div`
-    display: flex;
-    width: 82%;
-    align-self: center;
-    justify-content: center;
-    font-size: 70px;
-    border-bottom: 2px solid  ${props => props.theme.colors.highlight};
-    text-align: center;
-    color :  ${props => props.theme.colors.primary};
+	width: calc(100% + 20px);
+    // align-self:baseline;
+	background: #312F2F;
+	justify-content: flex-start;
 `
 
 const ProjectDesc = styled.div`
     display: flex;
-    font-family: Source Code Pro;
+	color: #8D7E7E;
+	font-size: 36px;
+	text-align: center;
+	margin: 50px 0px;
+	white-space: pre-wrap;
+	@media (max-device-width : ${props => props.theme.mobile}px)
+	{
+		font-size: 24px;
+	}
 `

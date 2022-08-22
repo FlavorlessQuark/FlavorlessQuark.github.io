@@ -2,33 +2,11 @@ import React from 'react'
 import styled from "styled-components"
 
 import { Title, Link } from '../StyledComponents'
-import { ReactComponent as C } from '../../assets/icons/C.svg'
-import { ReactComponent as Python } from '../../assets/icons/Python.svg'
+
+import { projectsData, showcaseProjects } from '../../views/projectsData'
 
 const Showcase = ({ innerRef }) =>
 {
-	const projects = {
-		"Edge detection": {
-			lang : [<C key="C"/>],
-			desc: "Detects straight edges from drawings",
-			url : "https://github.com/LumenNoctis/Shape_detect"
-		},
-		"SDLX": {
-			lang : [<C key="C"/>],
-			desc: "Mini game engine wrapped around SDL. Includes buttons, animations, rendering and collisions",
-			url : "https://github.com/FlavorlessQuark/old_SDL_Tools"
-		},
-		"Wireframe renderer": {
-			lang : [<C key="C"/>],
-			desc: "Simple wireframe renderer. Suports rotation vertex edition",
-			url : "https://github.com/42Curriculum/ft_fdf"
-		},
-		"Advent of Code": {
-			lang : [<C key="C"/>, <Python key="Py"/>],
-			desc: "Yearly programming contest",
-			url : "https://github.com/FlavorlessQuark/Advent_of_Code"
-		}
-	}
 
 	return (
 		<Container >
@@ -40,19 +18,23 @@ const Showcase = ({ innerRef }) =>
 			<Empty/>
 			<WrappedRow>
 				{
-					Object.keys(projects).map((elem) =>
+					showcaseProjects.map((elem) =>
 					<BeveledDivTop key={elem}>
 						<BeveledDiv>
-							<Project href={projects[elem].url}>
+							<Project
+							href={projectsData[elem].isInteractive
+								? "/project/" + elem
+								: projectsData[elem].link
+							}>
 								<ProjectTitle>
-									{elem}
+									{projectsData[elem].name}
 								</ProjectTitle>
 								<ProjectDesc>
-									{projects[elem].desc}
+									{projectsData[elem].short}
 								</ProjectDesc>
 								<WrappedRow>
 								{
-									projects[elem].lang.map((lang) =>
+									projectsData[elem].lang.map((lang) =>
 											lang
 										)
 								}
@@ -177,7 +159,7 @@ const ProjectTitle = styled.div`
 
 const ProjectDesc = styled.div`
 	display:flex;
-	color: ${props => props.theme.colors.shadow};
+	color: ${props => props.theme.colors.primary};
 	flex-wrap: wrap;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		font-size: 16px;

@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import styled, { ThemeProvider } from "styled-components"
+import React from 'react'
+import styled from "styled-components"
 import { ReactComponent as emailSVG} from "../../assets/icons/email.svg"
 import { ReactComponent as githubSVG} from "../../assets/icons/github.svg"
 import { ReactComponent as linkedinSVG} from "../../assets/icons/linkedin.svg"
@@ -9,7 +9,6 @@ import { ReactComponent as hudContainer} from "../../assets/HUD/IconContainer.sv
 
 export const Footer = () =>
 {
-    const [active, setActive] = useState("Resume");
     const links = [["https://github.com/FlavorlessQuark", <Github />], ["https://www.linkedin.com/in/johanna-josephine-7a91b01b6", <Linkedin/>], ["mailto:jjosephi.dev@google.com", <Email/>]]
 
     return (

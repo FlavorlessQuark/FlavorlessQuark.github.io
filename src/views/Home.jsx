@@ -22,18 +22,20 @@ export const Home = ({ children }) =>
 	}
 
     return (
+		<>
+		<PageNavContainer >
+
+			<Anchor active={!( isResumeVisible || isShowVisible)} onClick={()=> doScroll(introRef)} > Intro</Anchor>
+			<Anchor active={!( isIntroVisible  || isShowVisible)} onClick={()=> doScroll(resumeRef)}> Resume</Anchor>
+			<Anchor active={!( isResumeVisible || isIntroVisible)} onClick={()=> doScroll(showRef)}> Showcase</Anchor>
+
+		</PageNavContainer>
 		<Container>
-			<div style={{position:"fixed", zIndex: "42"}}>
-
-			{ !isIntroVisible && <button onClick={()=> doScroll(introRef)} > to intro</button>}
-			{ !isResumeVisible && <button onClick={()=> doScroll(resumeRef)}> to resume</button>}
-			{ !isShowVisible && <button onClick={()=> doScroll(showRef)}> to showcase</button>}
-
-			</div>
 			<Intro innerRef={introRef}/>
 			<Resume innerRef={resumeRef}/>
 			<Showcase innerRef={showRef}/>
 		</Container>
+		</>
     )
 }
 const Container = styled.div`
@@ -46,4 +48,26 @@ const Container = styled.div`
 	justify-content: space-between;
 	height: fit-content;
 	// z-index:0;
+`
+
+const PageNavContainer = styled.div`
+	display:flex;
+	position: fixed;
+	flex-direction: column;
+	flex-direction: column;
+	right: 0px;
+	gap: 25px;
+`
+
+const Anchor = styled.div`
+	display:flex;
+	background: ${props => props.theme.colors.shadow};
+	font-size: 20px;
+	position: relative;
+	padding: ${props => props.active ? "15px 51px" : "11px"};
+	border: 2px solid  ${props => props.theme.colors.primary};
+	color: ${props => props.active ? "red" : "white"};
+	width: ${props => props.active ? "100%" : "75%"};
+	left: ${props => props.active ? "0px" : "50px"};
+	transition: all 0.5s;
 `

@@ -5,7 +5,7 @@ export const styles = {
         primary : "#00D8E5",
         secondary:"#B0ACB0",
         highlight:"#07D74F;",
-        shadow:"#3D898D",
+        shadow:"#2F404D",
     },
     text: {
         title:"var()",
