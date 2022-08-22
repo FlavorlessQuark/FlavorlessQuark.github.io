@@ -5,7 +5,6 @@ import { ReactComponent as githubSVG} from "../../assets/icons/github.svg"
 import { ReactComponent as linkedinSVG} from "../../assets/icons/linkedin.svg"
 
 import { ReactComponent as hudContainer} from "../../assets/HUD/IconContainer.svg"
-// import Background from "../../assets/HUD/IconContainer.svg"
 
 export const Footer = () =>
 {

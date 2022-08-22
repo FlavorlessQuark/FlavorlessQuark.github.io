@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 
-import { Title, Link } from '../StyledComponents'
+import { Link, Title } from '../StyledComponents'
 
 import { projectsData, showcaseProjects } from '../../views/projectsData'
 

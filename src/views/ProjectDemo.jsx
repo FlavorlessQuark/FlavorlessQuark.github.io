@@ -58,9 +58,7 @@ export const ProjectDemo = ({ children }) =>
 					<Text>{"["+elem[0]+"] : " + elem[1]}</Text>
 				)
 			}
-			{/* <Text>[Tab]: switch between visualize and draw mode </Text>
-			<Text>[Space] In draw mode, calculate the lines</Text>
-			<Text>[Left / right arrow] In visualize mode, adjust sensitivity</Text> */}
+
 		</Controls>
 		<Source href={projectsData[name].link}> Source Code </Source>
         <ProjectName>About this project</ProjectName>
@@ -72,7 +70,6 @@ export const ProjectDemo = ({ children }) =>
               <script src={projectsData[name].src}/>
 
           </Helmet>
-          {/* <button onClick={() =>console.log(window.TEST)}/> */}
         </Container>
 
     )

@@ -1,17 +1,13 @@
-import React from "react"
+import React from "react";
 import {
-  BrowserRouter as Router,
-  Navigate,
-  Route,
-  Routes,
-} from "react-router-dom"
-import { Route1 } from './views/Route1';
-import { Route2 } from './views/Route2';
+	BrowserRouter as Router, Route,
+	Routes
+} from "react-router-dom";
 import { Baseview } from './components/Skeleton/Baseview';
-import { Home } from "./views/Home";
-import { Contact } from "./views/Contact";
-import { ProjectDemo } from "./views/ProjectDemo";
 import Page404 from "./views/404";
+import { Contact } from "./views/Contact";
+import { Home } from "./views/Home";
+import { ProjectDemo } from "./views/ProjectDemo";
 const App = () => {
 
   return (

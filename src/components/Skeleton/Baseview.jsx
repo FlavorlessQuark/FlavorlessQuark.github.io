@@ -16,9 +16,9 @@ export const Baseview = ({ children }) =>
             <Background/>
             <NavBar/>
 			<HUD>
-				<HUD_Left/>
-				<HUD_Top/>
-				<HUD_Right/>
+				<HUDLeft/>
+				<HUDTop/>
+				<HUDRight/>
 			</HUD>
             <PageContent>
                 {children}
@@ -45,7 +45,7 @@ const HUD = styled.div`
 	z-index: 1;
 `
 
-const HUD_Left = styled(left)`
+const HUDLeft = styled(left)`
 	display:flex;
 	top: -7px;
 	left: -4px;
@@ -58,7 +58,7 @@ const HUD_Left = styled(left)`
 		margin-right: -52px;
 	}
 `
-const HUD_Top = styled(top)`
+const HUDTop = styled(top)`
 	display:flex;
 	top: -4px;
 	position:relative;
@@ -66,7 +66,7 @@ const HUD_Top = styled(top)`
 	 background-color: ${props => props.theme.colors.background || "grey"};
 
 `
-const HUD_Right = styled(right)`
+const HUDRight = styled(right)`
 	display:flex;
 	right: -1px;
 	top: -4px;
