@@ -21,7 +21,7 @@ export const Projects = ({ children }) =>
 							<BeveledDiv>
 								<Project
 								href={projectsData[elem].isInteractive
-									? "/project/" + elem
+									? "/projects/" + elem
 									: projectsData[elem].link
 								}>
 									<ProjectTitle>
