@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import styled from "styled-components"
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import { Title } from '../components/StyledComponents';
 import Page404 from './404'
@@ -17,30 +17,49 @@ import {projectsData }from './projectsData';
 // becomes
 // <Text> This is a sample text with a <Link>link<Link/> <Bold>bold<Bold/> <Italic>italic<Italic> <p style={{color: 0xFFFF}}> colored text <p>
 // Lastly we will fetch the js script with : "https://cdn.jsdelivr.net/gh/Wasync/[repo]/[script url (not including branch)]"
-export const ProjectDemo = ({ children }) =>
+export const ProjectDemo = () =>
 {
 	const {name} = useParams()
+	// const name = "edgeDetect";
     const [runScript, setRun] = useState(1);
-
+	const[v , setV] = useState(1);
+	let l = 0
 
     useEffect(() => {
-        if (setRun && window.Module)
+		console.log(window.draw)
+        if ((name in projectsData) && window[projectsData[name].module] && !l)
         {
+
+			l += 1;
             setRun(0)
-            console.log("loaded");
-            window.Module({
-                canvas: (() => document.getElementById('canvas'))(),
-            })
-            .then(() => {
-                console.log("Done");
-            });
+			console.log("loaded", l);
+			window[projectsData[name].module]({
+				canvas: (() => document.getElementById('canvas'))(),
+			})
+			.then(() => {
+				console.log("Done");
+			});
+
         }
-        else if (runScript < 50)
-        {
-            setRun(runScript + 1)
-            console.log("Script not loaded")
-        }
-    }, [runScript]);
+        // else if (runScript < 50)
+        // {
+        //     setRun(runScript + 1)
+        //     console.log("Script not loaded")
+        // }
+    }, []);
+
+	//   useEffect(() => {
+	// 	// let l = 1
+    //     if (window.Module)
+    //     {
+    //       window.Module({
+    //             canvas: (() => document.getElementById('canvas'))(),
+    //         })
+    //         .then(() => {
+    //             console.log("Done");
+    //         });
+    //     }
+    // }, []);
 
 
 	if (!(name in projectsData))
@@ -66,11 +85,18 @@ export const ProjectDemo = ({ children }) =>
 			{projectsData[name].description}
         </ProjectDesc>
      </Column>
-     <Helmet>
-              <script src={projectsData[name].src}/>
+	 {/* Not cleaning this up yet, may be useful later. No time to figure it out for the moment
+	  */}
+     {/* <Helmet>
+		<script defer={true} src={projectsData[name].src}/> */}
+		{/* {
+			projectsData[name].dependencies.map((elem) =>
+				<script src={elem} type='application/octet-stream'/>
+			)
+		} */}
 
-          </Helmet>
-        </Container>
+		{/* </Helmet> */}
+	</Container>
 
     )
 }
@@ -108,7 +134,7 @@ const Canvas = styled.canvas`
     background: black;
     width: 100%;
     border: 20px solid #78787863;
-    // aspect-ratio: 1/1;
+    aspect-ratio: 1/1;
     // height:80%;
 	max-height: 580px;
 	@media (max-device-width : ${props =>props.theme.mobile}px) {

@@ -8,14 +8,14 @@ export const projectsData = {
 		short: "Detects straight edges from drawings",
 		description : " \
 		This is my first and probably not last computer vision project. It took about 4 weeks to make, and most of this time was spent figuring out the math behind it and constructing the visualizer\n\
-		This web version is quite a bit slower and jankier than than the actual executable so I encourage you to run the executable by clicking the 'source code' link above. This project was programmed with C and SDL2 and compiled fore the web using the emscripten compieler \n\n \
+		This web version is quite a bit slower and jankier than the executable so I encourage you to run the executable by clicking the 'source code' link above. This project was programmed with C and SDL2 and compiled fore the web using the emscripten compiler \n\n \
 		Implementation : \n\n \
 		This is a computer vision program that is used to detect edges. The user will draw something and the program will attempt to find straight edges within the picture\n\n \
-		This specific algorithm uses the hough transform to check for lines.\n\
-		When a user draws, we capture the mouse input. Because knowing what pixels have been written to screen is an expensive operation in SDL2, we manually calcute the path of the mouse since the last input capture.\n\
+		This specific algorithm uses the Hough transform to check for lines.\n\
+		When a user draws, we capture the mouse input. Because knowing what pixels have been written to screen is an expensive operation in SDL2, we manually calculate the path of the mouse since the last input capture.\n\
 		For each point in this path we calculate the hough transform. The hough transform works as follows: \n\
 		For a given point P(x,y) we graph every line that may pass throught it. We use polar cooridnates to avoid issues with slopes and potential division by 0 when the line is vertical. \n\n\
-		The formula for this line is :  x * cos(t) + y * sin(t) + d; \n\n\
+		The formula for this line is :\n\n  x * cos(t) + y * sin(t) = d; \n\n Where d is the distance to the origin and t is the angle of the perpendicular line passing through the origin\n\n\
 		For a given point P(x,y) we graph every possible distance (d) from the origin (within a range) for every angle (t) \n\
 		We graph all the points like this and then use a divide and conquer algorithm to find all the local maxmiums (above a certain threshold). Each of these maximums represent the distance and angle of an edge.\n \
 		",
@@ -25,7 +25,9 @@ export const projectsData = {
 			["Left / right arrow", "In visualize mode, adjust sensitivity"]
 			],
 		link: "https://github.com/LumenNoctis/Shape_detect",
-		src: "https://cdn.jsdelivr.net/gh/Compute-Progress/Rush/draw.js",
+		module:"draw",
+		src: "https://cdn.jsdelivr.net/gh/LumenNoctis/Shape_detect/draw.js",
+		dependencies : ["https://cdn.jsdelivr.net/gh/LumenNoctis/Shape_detect/draw.data", "https://cdn.jsdelivr.net/gh/LumenNoctis/Shape_detect/draw.js.mem"],
 		lang : [<C key="C"/>],
 	},
 	"SDLX": {

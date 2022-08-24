@@ -38,7 +38,7 @@ export const NavBar = () =>
 				{
 					options.map((elem) =>
 						<OptionCol key={elem}>
-							<TopOption selected={location === ("/" + elem)} onClick={() => {setShow(show ^ 1); navigate("/" + elem)}}> {elem}</TopOption>
+							<TopOption selected={location.includes(elem)} onClick={() => {setShow(show ^ 1); navigate("/" + elem)}}> {elem}</TopOption>
 							<StyledSeparator/>
 						</OptionCol>
 					)
@@ -62,7 +62,7 @@ export const NavBar = () =>
 		<TopContainer>
 			{
 				options.map((elem) =>
-					location === ("/" + elem) ?
+					location.includes(elem) ?
 						<Selected key= {elem}>
 							<StyledSelector/>
 							<TopOption style={{position: "absolute", top: "-14px"}} > {elem}</TopOption>

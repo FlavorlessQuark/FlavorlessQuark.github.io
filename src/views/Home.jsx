@@ -23,13 +23,13 @@ export const Home = ({ children }) =>
 
     return (
 		<>
-		<PageNavContainer >
+		{/* <PageNavContainer >
 
 			<Anchor active={!( isResumeVisible || isShowVisible)} onClick={()=> doScroll(introRef)} > Intro</Anchor>
 			<Anchor active={!( isIntroVisible  || isShowVisible)} onClick={()=> doScroll(resumeRef)}> Resume</Anchor>
 			<Anchor active={!( isResumeVisible || isIntroVisible)} onClick={()=> doScroll(showRef)}> Showcase</Anchor>
 
-		</PageNavContainer>
+		</PageNavContainer> */}
 		<Container>
 			<Intro innerRef={introRef}/>
 			<Resume innerRef={resumeRef}/>
