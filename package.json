@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "react-scripts start",
+    "start": "serve -s build -l 8080",
     "server": "nodemon --watch server server/server.js",
     "client": "react-scripts start",
     "build": "CI= GENERATE_SOURCEMAP=false react-scripts build",
