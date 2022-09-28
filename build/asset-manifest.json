@@ -1,13 +1,20 @@
 {
   "files": {
     "main.css": "/static/css/main.4efb37a3.css",
-    "main.js": "/static/js/main.2fee9259.js",
-    "static/media/Resume.pdf": "/static/media/Resume.cfaad2f746debdeb36aa.pdf",
+    "main.js": "/static/js/main.85984774.js",
+    "static/media/burningship.gif": "/static/media/burningship.280dd2dd14dea31a2467.gif",
+    "static/media/Resume.pdf": "/static/media/Resume.8b3d0962925ea51eb820.pdf",
+    "static/media/Mongo.svg": "/static/media/Mongo.ee855297fd90f6e986dd07885e7dbc50.svg",
+    "static/media/sphere.png": "/static/media/sphere.787c735f38b0d2c7da9a.png",
+    "static/media/Nodejs.svg": "/static/media/Nodejs.25a50a77937c3662fdd9c71316142cf7.svg",
+    "static/media/spherecube.png": "/static/media/spherecube.08bfcc65043f0124bde3.png",
     "static/media/email.svg": "/static/media/email.51d0a4a234e31379b146019d2007ce96.svg",
     "static/media/github.svg": "/static/media/github.eafb5ee5fb05f49e73bb2f7bd6da2dec.svg",
     "static/media/Python.svg": "/static/media/Python.7cb5a00bcf6771bdc4813221ec6af506.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.2345301b89d6974c6050e4c295fa30f6.svg",
     "static/media/C.svg": "/static/media/C.8ce4cbda7b3cde05bd4e96822aeb4753.svg",
+    "static/media/Reactjs.svg": "/static/media/Reactjs.07795d84a912b3560f539b92dca45b75.svg",
+    "static/media/JS.svg": "/static/media/JS.6bdd128aaf5be7a6cd717124cab8059a.svg",
     "index.html": "/index.html",
     "static/media/X.svg": "/static/media/X.0451a6bda3b7ee5f918c339eb076ffc4.svg",
     "static/media/HUDLefts.svg": "/static/media/HUDLefts.b4e3e511ad98d37ba7d4e67d15ce9f90.svg",
@@ -20,6 +27,6 @@
   },
   "entrypoints": [
     "static/css/main.4efb37a3.css",
-    "static/js/main.2fee9259.js"
+    "static/js/main.85984774.js"
   ]
 }

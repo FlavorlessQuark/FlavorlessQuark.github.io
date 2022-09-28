@@ -26,8 +26,7 @@ export const ProjectDemo = () =>
 	let l = 0
 
     useEffect(() => {
-		console.log(window.draw)
-        if ((name in projectsData) && window[projectsData[name].module] && !l)
+        if ((name in projectsData) && projectsData[name].isInteractive && window[projectsData[name].module] && !l)
         {
 
 			l += 1;
@@ -48,20 +47,6 @@ export const ProjectDemo = () =>
         // }
     }, []);
 
-	//   useEffect(() => {
-	// 	// let l = 1
-    //     if (window.Module)
-    //     {
-    //       window.Module({
-    //             canvas: (() => document.getElementById('canvas'))(),
-    //         })
-    //         .then(() => {
-    //             console.log("Done");
-    //         });
-    //     }
-    // }, []);
-
-
 	if (!(name in projectsData))
 		return <Page404/>
 	else
@@ -69,17 +54,29 @@ export const ProjectDemo = () =>
         <Container>
      <Column>
         <Title style={{marginTop: "-30px"}}> {projectsData[name].name} </Title>
-        <Canvas id="canvas"/>
-        <Controls>
-			<Text>Controls :</Text>
-			{
-				projectsData[name].controls.map((elem) =>
-					<Text>{"["+elem[0]+"] : " + elem[1]}</Text>
-				)
-			}
-
-		</Controls>
-		<Source href={projectsData[name].link}> Source Code </Source>
+		{
+			projectsData[name].isInteractive ?
+			<>
+				<Canvas id="canvas"/>
+				<Controls>
+					<Text>Controls :</Text>
+					{
+						projectsData[name].controls && projectsData[name].controls.map((elem) =>
+							<Text>{"["+elem[0]+"] : " + elem[1]}</Text>
+						)
+					}
+				</Controls>
+			</>
+			:
+			<Row>
+				{
+					projectsData[name].images && projectsData[name].images.map((elem) =>
+						<StyledImage key={elem} src={elem}/>
+					)
+				}
+			</Row>
+		}
+		{projectsData[name].link && <Source href={projectsData[name].link}> Source Code </Source>}
         <ProjectName>About this project</ProjectName>
         <ProjectDesc>
 			{projectsData[name].description}
@@ -108,6 +105,19 @@ const Container = styled.div`
 	width: 100%;
 	font-family: 'Iceland';
 	align-items: center;
+`
+
+const Row = styled.div`
+	display:flex;
+	width: 100%;
+	flex-direction:row;
+	justify-content: center;
+`
+
+const StyledImage = styled.img`
+	display:flex;
+	width: 49%;
+	margin: 2px;
 `
 
 const Column = styled.div`
@@ -171,7 +181,7 @@ const ProjectDesc = styled.div`
 	font-size: 36px;
 	text-align: center;
 	margin: 50px 0px;
-	white-space: pre-wrap;
+	white-space: pre-line;
 	@media (max-device-width : ${props => props.theme.mobile}px)
 	{
 		font-size: 24px;

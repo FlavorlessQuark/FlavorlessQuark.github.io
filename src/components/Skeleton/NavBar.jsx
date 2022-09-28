@@ -65,7 +65,7 @@ export const NavBar = () =>
 					location.includes(elem) ?
 						<Selected key= {elem}>
 							<StyledSelector/>
-							<TopOption style={{position: "absolute", top: "-14px"}} > {elem}</TopOption>
+							<TopOption onClick={() => navigate("/" + elem)} style={{position: "absolute", top: "-14px"}} > {elem}</TopOption>
 						</Selected>
 						:
 						<TopOption key={elem} onClick={() => navigate("/" + elem)}> {elem}</TopOption>

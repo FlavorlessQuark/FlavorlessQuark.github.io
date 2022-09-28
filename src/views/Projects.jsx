@@ -11,16 +11,16 @@ export const Projects = ({ children }) =>
 		<>
 		<Container>
 			<Title style={{textAlign: "center", alignSelf:"center"}}> Projects </Title>
-			<Text> Below are interactive projects you can try on this website</Text>
+			<Text> Personal projects featured on this website</Text>
 			<WrappedRow>
 				{
 					Object.keys(projectsData).map((elem) =>
-						projectsData[elem].isInteractive
+						!projectsData[elem].isWork && projectsData[elem].show
 						?
 						<BeveledDivTop key={elem}>
 							<BeveledDiv>
 								<Project
-								href={projectsData[elem].isInteractive
+								href={projectsData[elem].show
 									? "/projects/" + elem
 									: projectsData[elem].link
 								}>
@@ -30,6 +30,44 @@ export const Projects = ({ children }) =>
 									<ProjectDesc>
 										{projectsData[elem].short}
 									</ProjectDesc>
+									<WrappedRow>
+									{
+										projectsData[elem].lang.map((lang) =>
+												lang
+											)
+									}
+								</WrappedRow>
+								</Project>
+
+							</BeveledDiv>
+						</BeveledDivTop>
+						: <></>
+					)
+				}
+			</WrappedRow>
+			<Text> Work projects </Text>
+			<WrappedRow>
+				{
+					Object.keys(projectsData).map((elem) =>
+						projectsData[elem].isWork
+						?
+						<BeveledDivTop key={elem}>
+							<BeveledDiv>
+								<Project
+								href={"/projects/" + elem}>
+									<ProjectTitle>
+										{projectsData[elem].name}
+									</ProjectTitle>
+									<ProjectDesc>
+										{projectsData[elem].short}
+									</ProjectDesc>
+									<WrappedRow>
+									{
+										projectsData[elem].lang.map((lang) =>
+												lang
+											)
+									}
+								</WrappedRow>
 								</Project>
 							</BeveledDiv>
 						</BeveledDivTop>
@@ -139,6 +177,7 @@ const ProjectDesc = styled.div`
 	display:flex;
 	color: ${props => props.theme.colors.primary};
 	flex-wrap: wrap;
+	white-space: pre-wrap;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		font-size: 16px;
 	}
@@ -152,5 +191,5 @@ const WrappedRow = styled.div`
 	align-items: ;
 	justify-content: center;
 	gap: 34px;
-
+	align-items:center;
 `

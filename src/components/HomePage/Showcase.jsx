@@ -22,7 +22,7 @@ const Showcase = ({ innerRef }) =>
 					<BeveledDivTop key={elem}>
 						<BeveledDiv>
 							<Project
-							href={projectsData[elem].isInteractive
+							href={projectsData[elem].show
 								? "/projects/" + elem
 								: projectsData[elem].link
 							}>
