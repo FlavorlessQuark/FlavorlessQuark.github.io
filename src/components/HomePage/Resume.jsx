@@ -31,6 +31,6 @@ const Container = styled.div`
 const PDF = styled.iframe`
 	display: block;
 	width:90%;
-	height: 50vh;
+	height: 75vh;
 	margin:auto;
 `

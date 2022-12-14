@@ -5,11 +5,17 @@ import { ReactComponent as Reactjs } from '../assets/icons/Reactjs.svg'
 import { ReactComponent as Nodejs } from '../assets/icons/Nodejs.svg'
 import { ReactComponent as Mongo } from '../assets/icons/Mongo.svg'
 
+import BDLogo from "../assets/projects/BD/bd_logo.png"
+import LBLogo from "../assets/projects/Lootbox/Lootbox_logo.png"
+import FDFLogo from "../assets/projects/fdf/fdf_logo.svg"
+import RayLogo from "../assets/projects/raymarcher/ray_logo.svg"
+import EdgeLogo from "../assets/projects/edge.jpg"
+
 
 import sphere from "../assets/projects/raymarcher/sphere.png"
 import spherecube from "../assets/projects/raymarcher/spherecube.png"
 
-import burningship from "../assets/projects/fractals/burningship.gif"
+// import burningship from "../assets/projects/fractals/burningship.gif"
 import styled from 'styled-components'
 
 export const projectsData = {
@@ -38,6 +44,7 @@ We graph all the points like this and then use a divide and conquer algorithm to
 			],
 		link: "https://github.com/LumenNoctis/Shape_detect",
 		module:"draw",
+		logo: EdgeLogo,
 		src: "https://cdn.jsdelivr.net/gh/LumenNoctis/Shape_detect/draw.js",
 		dependencies : ["https://cdn.jsdelivr.net/gh/LumenNoctis/Shape_detect/draw.data", "https://cdn.jsdelivr.net/gh/LumenNoctis/Shape_detect/draw.js.mem"],
 		lang : [<C key="C"/>],
@@ -46,6 +53,7 @@ We graph all the points like this and then use a divide and conquer algorithm to
 		show: true,
 		isInteractive: false,
 		name: "SDLX",
+
 		short: "Mini game engine wrapped around SDL.\n Includes buttons, animations, rendering and collisions",
 		description:"SDLX is a mini game engine using SDL2. The main purpose was to make it easier to develop graphical applications.\n\
 		 This version includes support for animations, simple collisions, rendering, FPS cap and buttons.\n\
@@ -56,10 +64,12 @@ We graph all the points like this and then use a divide and conquer algorithm to
 	},
 	"FdF": {
 		show: true,
-		name: "Wireframe Renderer",
-		isInteractive: false,
-		short: "Simple wireframe renderer. Suports rotation vertex edition",
-		link : "https://github.com/42Curriculum/ft_fdf",
+		name: "3D renderer",
+		isInteractive: true,
+		module:"renderer",
+		logo: FDFLogo,
+		short: "Renders .obj files",
+		link : "https://github.com/LumenNoctis/TinyRenderer",
 		lang : [<C key="C"/>],
 	},
 	"AoC": {
@@ -75,6 +85,7 @@ We graph all the points like this and then use a divide and conquer algorithm to
 		name: "BlockDuelers",
 		isInteractive: false,
 		isWork:true,
+		logo:BDLogo,
 		short: "NFT game website",
 		link : null,
 		description: "September 2021 - February 2022 \n\nBlockDuelers is a website whose main purpose is to give utility to NFTs by letting users battle with them \n\n \
@@ -103,6 +114,18 @@ Worked with user feedback to fix bugs and patch security issues \
 		lang : [<JS key="js"/>, <Reactjs key="react"/>, <Nodejs key="node"/>, <Mongo key="mongo"/>],
 		images : []
 	},
+	"LB": {
+		show: true,
+		name: "Lootbox",
+		isInteractive: false,
+		isWork:true,
+		logo: LBLogo,
+		short: "NFT game website",
+		link : null,
+		description: "September 2021 - February 2022 \n\nBlockDuelers is a website whose main purpose is to give utility to NFTs by letting users battle with them",
+		lang : [<JS key="js"/>, <Reactjs key="react"/>, <Nodejs key="node"/>, <Mongo key="mongo"/>],
+		images : []
+	},
 	"Fract": {
 		show: true,
 		name: "Fractals",
@@ -116,13 +139,14 @@ The sine coloring method uses the sine function with 3 parameters (thayt can be 
 Some fractals like the Julia sets which is not static, can have their parameters modified by mouse movement",
 		link : "https://github.com/LumenNoctis/Fractals",
 		lang : [<C key="c"/>],
-		images : [burningship]
+		images : []
 	},
 	"RM": {
 		show: true,
 		name: "Raymarcher",
 		isInteractive: false,
 		isWork:false,
+		logo:RayLogo,
 		short: "Raymarcher renderer. Supports mesh addition and substraction, as well as rotation, translation, light and shadows",
 		link : "https://github.com/LumenNoctis/RayMarching",
 		description:
@@ -138,4 +162,4 @@ This gives us the normal. The lighting coefficient is then just a mater of takin
 }
 
 
-export const showcaseProjects = ["edgeDetect", "SDLX", "FdF", "BD", "AoC"]
+export const showcaseProjects = [ "BD", "LB", "edgeDetect", "FdF", "SDLX"]

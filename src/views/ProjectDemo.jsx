@@ -21,16 +21,12 @@ export const ProjectDemo = () =>
 {
 	const {name} = useParams()
 	// const name = "edgeDetect";
-    const [runScript, setRun] = useState(1);
-	const[v , setV] = useState(1);
 	let l = 0
-
     useEffect(() => {
         if ((name in projectsData) && projectsData[name].isInteractive && window[projectsData[name].module] && !l)
         {
 
 			l += 1;
-            setRun(0)
 			console.log("loaded", l);
 			window[projectsData[name].module]({
 				canvas: (() => document.getElementById('canvas'))(),
@@ -40,11 +36,6 @@ export const ProjectDemo = () =>
 			});
 
         }
-        // else if (runScript < 50)
-        // {
-        //     setRun(runScript + 1)
-        //     console.log("Script not loaded")
-        // }
     }, []);
 
 	if (!(name in projectsData))

@@ -1,77 +1,50 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from "styled-components"
 import { Title } from '../components/StyledComponents'
 
 import { projectsData } from './projectsData'
+import { ProjectTile } from '../components/ProjectTile'
 
 export const Projects = ({ children }) =>
 {
-	// console.log(projectsData)
+	const [workProjs, setWork] = useState([])
+	const [persProjs, setPers] = useState([])
+	useEffect(() => {
+		let pers= []
+		let work = []
+		for (let project of Object.keys(projectsData))
+		{
+			if (projectsData[project].isWork)
+				work.push(<ProjectTile projectsData={projectsData} project={project}/>)
+			else
+				pers.push(<ProjectTile projectsData={projectsData} project={project}/>)
+		}
+
+		setWork(work)
+		setPers(pers)
+	}, [])
+
     return (
 		<>
 		<Container>
 			<Title style={{textAlign: "center", alignSelf:"center"}}> Projects </Title>
-			<Text> Personal projects featured on this website</Text>
-			<WrappedRow>
-				{
-					Object.keys(projectsData).map((elem) =>
-						!projectsData[elem].isWork && projectsData[elem].show
-						?
-						<BeveledDivTop key={elem}>
-							<BeveledDiv>
-								<Project
-								href={projectsData[elem].show
-									? "/projects/" + elem
-									: projectsData[elem].link
-								}>
-									<ProjectTitle>
-										{projectsData[elem].name}
-									</ProjectTitle>
-									<ProjectDesc>
-										{projectsData[elem].short}
-									</ProjectDesc>
-									<WrappedRow>
-									{
-										projectsData[elem].lang.map((lang) =>
-												lang
-											)
-									}
-								</WrappedRow>
-								</Project>
-
-							</BeveledDiv>
-						</BeveledDivTop>
-						: <></>
-					)
-				}
-			</WrappedRow>
 			<Text> Work projects </Text>
 			<WrappedRow>
 				{
-					Object.keys(projectsData).map((elem) =>
-						projectsData[elem].isWork
-						?
-						<BeveledDivTop key={elem}>
-							<BeveledDiv>
-								<Project
-								href={"/projects/" + elem}>
-									<ProjectTitle>
-										{projectsData[elem].name}
-									</ProjectTitle>
-									<ProjectDesc>
-										{projectsData[elem].short}
-									</ProjectDesc>
-									<WrappedRow>
-									{
-										projectsData[elem].lang.map((lang) =>
-												lang
-											)
-									}
-								</WrappedRow>
-								</Project>
-							</BeveledDiv>
-						</BeveledDivTop>
-						: <></>
+					workProjs.map((elem) =>
+						<>
+						{elem}
+						</>
+					)
+				}
+			</WrappedRow>
+			<Text> Personal projects </Text>
+			<WrappedRow>
+				{
+					persProjs.map((elem) =>
+						<>
+						{elem}
+						</>
 					)
 				}
 			</WrappedRow>
@@ -91,49 +64,6 @@ const Container = styled.div`
 	// z-index:0;
 `
 
-const BeveledDiv = styled.div`
-	display:flex;
-	clip-path: polygon(2.5% 0%,97.5% 0%,100% 2.5%,100% 97.5%,97.5% 100%,2.5% 100%,0% 97.5%,0% 2.5%);
-	width: 100%;
-	padding: 10px;
-	background: #B0ACB0;
-	&&:hover {
-		// width: 380px;
-		padding: 5px;
-	}
-	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		padding: 5px;
-		&&:hover {
-			padding: 3px;
-		}
-	}
-`
-
-const BeveledDivTop = styled.div`
-	display:flex;
-	clip-path: polygon(2.5% 0%,97.5% 0%,100% 2.5%,100% 97.5%,97.5% 100%,2.5% 100%,0% 97.5%,0% 2.5%);
-	// width: 35%;
-	padding: 10px;
-	text-align: center;
-	background: #353535;
-	aspect-ratio: 3/2;
-	width: 370px;
-	&&:hover {
-		width: 380px;
-		padding: 5px;
-	}
-	transition: all 0.5s;
-
-	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		width: 280px;
-		padding: 5px;
-		&&:hover {
-			width: 277px;
-			padding: 3px;
-		}
-	}
-`
-
 const Text = styled.div`
 	font-size: 42px;
 	color: ${props =>props.theme.colors.secondary};
@@ -146,43 +76,6 @@ const Text = styled.div`
 	}
 `
 
-
-const Project = styled.a`
-	display:flex;
-	flex-direction: column;
-	width: 100%;
-	justify-content: space-around;
-	align-items: center;
-	gap: 30px;
-	background: black;
-	text-decoration: none;
-
-	padding: 5px;
-	text-align: center;
-
-		@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		gap: 0px;
-	}
-`
-
-const ProjectTitle = styled.div`
-	color: ${props => props.theme.colors.secondary};
-	font-size: 30px;
-	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		font-size: 21px;
-	}
-`
-
-const ProjectDesc = styled.div`
-	display:flex;
-	color: ${props => props.theme.colors.primary};
-	flex-wrap: wrap;
-	white-space: pre-wrap;
-	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		font-size: 16px;
-	}
-`
-
 const WrappedRow = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -190,6 +83,6 @@ const WrappedRow = styled.div`
 	width: 100%;
 	align-items: ;
 	justify-content: center;
-	gap: 34px;
+	gap: 50px;
 	align-items:center;
 `
