@@ -2,7 +2,8 @@ import React, {useRef, useState} from 'react'
 import styled from "styled-components"
 import emailjs from '@emailjs/browser';
 
-export const Contact = ({ children }) =>
+
+const Contact = ({ children }) =>
 {
 	const form = useRef();
 	const [wasSent, setSent] = useState(false)
@@ -23,7 +24,7 @@ export const Contact = ({ children }) =>
   return (
 	<Container>
 		<Header> Want to get in touch? </Header>
-		<Text> Email me</Text>
+		{/* <Text style={{color:"red"}}> Email me</Text> */}
 		{
 			wasSent ?
 			<Thanks> <Text style={{color:"black"}}> Your email has been sent.</Text>
@@ -31,23 +32,23 @@ export const Contact = ({ children }) =>
 			</Thanks>
 			:
 			<StyledForm ref={form} onSubmit={sendEmail}>
-				{/* <label>Your email</label> */}
 				<TextInput type="email" name="user_email" placeholder='your_email@email.com' />
-				{/* <label>Email</label> */}
 				<TextInput type="text" name="email_subject" placeholder='Program me a sheep!'/>
-				{/* <label>Message</label> */}
 				<TextArea name="message" placeholder='If you please--Program me a sheep'/>
 				<Send style={{cursor:"pointer"}} type="submit" value="Send" />
 			</StyledForm>
 		}
-		<Text> Or reach out here : </Text>
-		<Text><b>Discord</b> : Quark#2769 </Text>
-		<Text><b>Whatsapp</b> : (786)602-0249</Text>
-		<Text><b>Text</b> : (786)602-0249</Text>
 	</Container>
   );
 }
 
+
+const Bold = styled.div`
+	display:flex;
+	font-weight: bold;
+	color: #56ACB5;
+
+`
 const Container = styled.div`
 	display:flex;
 	flex-direction: column;
@@ -56,6 +57,12 @@ const Container = styled.div`
 	width: 100%;
 	font-family: 'Iceland';
 	align-items: center;
+	gap: 10px;
+	height: 100vh;
+	justify-content: space-around;
+	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+		height: 80vh;
+	}
 `
 
 const Thanks = styled.div`
@@ -97,10 +104,13 @@ const StyledForm = styled.form`
 	display:flex;
 	flex-direction: column;
 	gap: 10px;
-	background-color: ${props => props.theme.colors.shadow || "grey"};
-	width: 90%;
+	background-color: black;
+	width: 60%;
 	padding: 10px;
-	border: 10px solid  ${props => props.theme.colors.primary || "grey"};
+	border: 2px solid white;
+	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+		width: 90%;
+	}
 `
 
 const TextInput = styled.input`
@@ -143,3 +153,4 @@ const TextArea = styled.textarea`
 		font-size: 21px;
 	}
 `
+export default Contact

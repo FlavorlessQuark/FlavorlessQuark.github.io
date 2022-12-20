@@ -5,43 +5,42 @@ import { Title } from '../components/StyledComponents'
 import { projectsData } from './projectsData'
 import { ProjectTile } from '../components/ProjectTile'
 
-export const Projects = ({ children }) =>
+const Projects = ({ children }) =>
 {
-	const [workProjs, setWork] = useState([])
-	const [persProjs, setPers] = useState([])
+	const titles = ["All", "Work", "Personal", "Demos"];
+	const [projects, setProjects] = useState([])
+	const [index, setIndex] = useState(0)
 	useEffect(() => {
-		let pers= []
-		let work = []
+		let projs = [[], [], [], []];
+
 		for (let project of Object.keys(projectsData))
 		{
+			projs[0].push(<ProjectTile projectsData={projectsData} project={project}/>)
 			if (projectsData[project].isWork)
-				work.push(<ProjectTile projectsData={projectsData} project={project}/>)
+				projs[1].push(<ProjectTile projectsData={projectsData} project={project}/>)
 			else
-				pers.push(<ProjectTile projectsData={projectsData} project={project}/>)
+				projs[2].push(<ProjectTile projectsData={projectsData} project={project}/>)
+			if ((projectsData[project].hasDemo))
+				projs[3].push(<ProjectTile projectsData={projectsData} project={project}/>)
 		}
-
-		setWork(work)
-		setPers(pers)
+		setProjects(projs)
 	}, [])
 
     return (
 		<>
 		<Container>
-			<Title style={{textAlign: "center", alignSelf:"center"}}> Projects </Title>
-			<Text> Work projects </Text>
+			<Title style={{textAlign: "center", alignSelf:"center", height: "50px"}}>  </Title>
+			<Title style={{textAlign: "center", alignSelf:"center", }}> Projects </Title>
 			<WrappedRow>
 				{
-					workProjs.map((elem) =>
-						<>
-						{elem}
-						</>
+					titles.map((title, i) =>
+					<Button selected={i == index} onClick={() => setIndex(i)}>{title}</Button>
 					)
 				}
 			</WrappedRow>
-			<Text> Personal projects </Text>
 			<WrappedRow>
 				{
-					persProjs.map((elem) =>
+					projects[index] && projects[index].map((elem) =>
 						<>
 						{elem}
 						</>
@@ -62,6 +61,25 @@ const Container = styled.div`
 	justify-content: space-between;
 	height: fit-content;
 	// z-index:0;
+`
+
+const Button = styled.div`
+	display:flex;
+	cursor: pointer;
+	border-radius: 8px;
+	border: none;
+	text-transform: uppercase;
+	font-size: 1 rem;
+	font-weight: 300;
+	letter-spacing: 0.1rem;
+	padding: 10px 25px;
+	border-radius: 5px;
+	background-color: ${props => props.selected ? "#5fa25a" : "#a7c6c847"};
+	transition: all 0.5s ease-in-out;
+	&&:hover {
+		background-color:#53c0c682;
+	}
+}
 `
 
 const Text = styled.div`
@@ -86,3 +104,4 @@ const WrappedRow = styled.div`
 	gap: 50px;
 	align-items:center;
 `
+export default Projects;

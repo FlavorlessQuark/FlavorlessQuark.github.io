@@ -6,22 +6,28 @@ const Intro = ({ innerRef }) =>
 {
 	return (
 		<Container >
+			<div style={{height: "15%"}}> </div>
 			<div>
-				<Title ref={innerRef} style={{maxWidth:"450px", scrollMarginTop: "150px"}} >
+				<Title ref={innerRef} style={{ scrollMarginTop: "150px", color: "#3e9b6f"}} >
 					Hello World!
 				</Title>
-			</div>
-			<FlexText style={{textAlign: "start"}}>
-				<Text>
-					I'm a programmer and C wizard!
+				<Text style={{textAlign: "right", display: "block"}}>
+					I'm a programmer !
 				</Text>
+			</div>
+			<FlexText style={{textAlign: "center"}}>
 				<br/>
 				<Text>
-					I enjoy creating programming tools and have been working as FullStack / Web3/ Smart Contract developer
+					I love coding and solving problems of all kinds, and am always looking for the next oportunity to improve my skills and learn new ones!
+				</Text>
+				<br/>
+				<br/>
+				<Text>
+					I'm currently working as FullStack / Blockchain developer at SimpleBreakthrough;
 				</Text>
 			</FlexText>
 			<Text style={{textAlign: "center", alignSelf: "center"}}>
-				This website is a showcase of the code I have crafted
+				⌄
 			</Text>
 		</Container>
 	)
@@ -34,36 +40,36 @@ const Container = styled.div`
 	flex-direction: column;
 	width: 100%;
 	align-items: flex-start;
-	justify-content: space-between;
-	gap: 20px;
-	margin: 10px;
+	justify-content: space-around;
 	min-height: 770px;
+	height: 100vh;
 	scroll-margin-top: 120px;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		gap: 20px;
 		margin: 0px;
 		min-height: 680px;
-		// margin-top: 40px;
 	}
 `
 const FlexText = styled.div`
-	display:flex;
+	display:block;
 	flex-direction: column;
 	text-align: start;
-	// align-self: end;
+	align-self:center;
 	gap: 20px;
-	max-width: 1095px;
+	max-width: 65%;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		gap: 13px;
+	max-width: 90%;
+		wid
 	}
 `
 
 const Text = styled.div`
 	display:flex;
-	font-size:48px;
-	color: ${props =>props.theme.colors.primary};
+	font-size:35px;
+	// color: ${props =>props.theme.colors.primary};
+	color: #84b0bd;
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
 		// color: blue;
-		font-size: 32px;
+		font-size: 25px;
 	}
 `

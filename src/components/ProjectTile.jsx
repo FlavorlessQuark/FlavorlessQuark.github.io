@@ -4,8 +4,9 @@ import styled from "styled-components"
 export const ProjectTile = ({ projectsData, project }) =>
 {
 	return (
+		projectsData[project] &&
 		<ProjectContainer key={project}  >
-				<Project href={"/projects/" + project}>
+				<Project {...projectsData[project].hasDemo ? {href:"/projects/" + project} : {}}>
 					<ImgContainer>
 						<ProjectImg src={projectsData[project].logo}/>
 					</ImgContainer>
@@ -14,12 +15,35 @@ export const ProjectTile = ({ projectsData, project }) =>
 					<WrappedRow>
 						{ projectsData[project].lang.map((lang) => lang) }
 					</WrappedRow>
+				<Overlay>
+					<ProjectTitle>{projectsData[project].name}</ProjectTitle>
+					<ProjectDesc>{projectsData[project].description}</ProjectDesc>
+				</Overlay>
 				</Project>
 			</ProjectContainer>
 	)
 }
 
+const Overlay = styled.div`
+	display:flex;
+	background: black;
+	 position: absolute;
+	flex-direction: column;
+	justify-content: space-around;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: black;
+	width: 370px;
+	height: 400px;
+	&:hover {
+		opacity: 1;
+	}
+		@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
+			height: 250px;
+			width: 285px;
+	}
 
+`
 const ProjectContainer = styled.div`
 	display:flex;
 	flex-direction: column;
@@ -28,10 +52,11 @@ const ProjectContainer = styled.div`
 	height: 400px;
 	text-align: center;
 		@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-			height: 200px
-			width: 185px
+			height: 250px;
+			width: 285px;
 	}
 `
+// rgb(233, 35, 111)
 const ProjectImg = styled.img`
 	display:flex;
 `
@@ -69,7 +94,7 @@ const Project = styled.a`
 	transition: all 0.5s;
 
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		width: 280px;
+		// width: 280px;
 		padding: 5px;
 	}
 `

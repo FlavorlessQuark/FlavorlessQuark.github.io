@@ -12,11 +12,11 @@ const Showcase = ({ innerRef }) =>
 
 	return (
 		<Container >
-			<Title ref={innerRef} style={{textAlign: "center", alignSelf:"center"}}>
+			<Title ref={innerRef} style={{textAlign: "center", alignSelf:"center", fontSize: "60px"}}>
 					Showcase
 			</Title>
 			<Text>These are what I consider to be my best projects</Text>
-			<Text>Demos of other projects are available <Link href="/projects">here</Link></Text>
+			<Text>More <Link href="/projects">here</Link> or on <Link href="https://github.com/FlavorlessQuark"> Github</Link></Text>
 			<Empty/>
 			<WrappedRow>
 				{
@@ -33,14 +33,14 @@ export default Showcase;
 
 
 const Text = styled.div`
-	font-size: 42px;
+	font-size: 30px;
 	color: ${props =>props.theme.colors.secondary};
 	text-align: center;
 	align-self: center;
 	width: 100%;
 
 	@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-		font-size: 26px;
+		font-size: 23px;
 	}
 `
 

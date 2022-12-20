@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from "styled-components"
 
-import { Title } from '../StyledComponents'
+import { Title } from '../components/StyledComponents'
 
-import pdf from "../../assets/Resume.pdf"
+import pdf from "../assets/Resume.pdf"
 
 const Resume = ({ innerRef }) =>
 {
 	return (
 		<Container >
+			<Title style={{textAlign: "center", alignSelf:"center", height: "50px"}}>  </Title>
 			<Title ref={innerRef} style={{textAlign: "center", alignSelf:"center", scrollMarginTop: "150px"}}>
 					Resume
 			</Title>

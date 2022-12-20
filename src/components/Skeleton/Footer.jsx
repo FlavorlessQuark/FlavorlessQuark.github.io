@@ -6,7 +6,7 @@ import { ReactComponent as linkedinSVG} from "../../assets/icons/linkedin.svg"
 
 import { ReactComponent as hudContainer} from "../../assets/HUD/IconContainer.svg"
 
-export const Footer = () =>
+const Footer = () =>
 {
     const links = [["https://github.com/FlavorlessQuark", <Github />], ["https://www.linkedin.com/in/johanna-josephine-7a91b01b6", <Linkedin/>], ["mailto:jjosephi.dev@google.com", <Email/>]]
 
@@ -87,3 +87,4 @@ const Email = styled(emailSVG)`
 		width: 60%;
 	}
 `
+export default Footer

@@ -1,14 +1,14 @@
 import React from 'react'
 import styled, { ThemeProvider } from "styled-components"
-import { Footer } from './Footer'
-import { NavBar } from './NavBar'
+import Footer from './Footer'
+import NavBar from './NavBar'
 import { styles } from '../../styles'
 
 import { ReactComponent as right } from "../../assets/HUD/HUDRight.svg"
 import { ReactComponent as top } from "../../assets/HUD/HUDTop.svg"
 import { ReactComponent as left } from "../../assets/HUD/HUDLefts.svg"
 
-export const Baseview = ({ children }) =>
+const Baseview = ({ children }) =>
 {
     return (
     <ThemeProvider theme={styles}>
@@ -100,12 +100,13 @@ const PageContent = styled.div`
     width: 100vw;
     // padding: 100px 100px 0px 100px;
 	width: calc(100vw - 200px);
-	margin: 111px 100px 0px 100px;
+	margin: 20px 100px 0px 100px;
 	// width: 100vw;
 	@media screen and (max-width : ${props =>props.theme.mobile}px) {
-		width: calc(100vw - 110px);
-		margin: 65px 50px 0px 61px;
+		width: calc(100vw - 90px);
+		margin: 0px 45px 0px 56px;
 	}
 	position: absolute;
 	// z-index: -1;
 `
+export default Baseview;

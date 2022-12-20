@@ -12,15 +12,15 @@ import { ReactComponent as linkedinSVG} from "../../assets/icons/linkedin.svg"
 import { ReactComponent as Xicon} from "../../assets/icons/X.svg"
 
 
-import { useDisplaySize } from '../useDisplaySize'
+import { useDisplaySize } from '../Hooks/useDisplaySize'
 import { styles } from '../../styles'
 
-export const NavBar = () =>
+const NavBar = () =>
 {
 	const location = useLocation().pathname
 	const navigate = useNavigate();
     const [show , setShow] = useState(false)
-    const options = ["home", "projects", "contact"]
+    const options = ["home", "projects", "resume"]
 	const links = [["https://github.com/FlavorlessQuark", <Github />], ["https://www.linkedin.com/in/johanna-josephine-7a91b01b6", <Linkedin/>], ["mailto:jjosephi.dev@google.com", <Email/>]]
 
 	const {width} = useDisplaySize();
@@ -204,3 +204,4 @@ const RotatedDiv = styled.div`
 	top: 70px;
 	left: -82px;
 `
+export default NavBar;

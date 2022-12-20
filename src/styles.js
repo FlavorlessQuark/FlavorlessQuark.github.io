@@ -2,7 +2,7 @@ export const styles = {
     colors: {
 
         background: "#101315",
-        primary : "#00D8E5",
+        primary : "#5bcefa",
         secondary:"#B0ACB0",
         highlight:"#07D74F;",
         shadow:"#2F404D",

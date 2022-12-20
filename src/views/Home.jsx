@@ -2,24 +2,26 @@ import React, {useRef} from 'react'
 import styled from "styled-components"
 
 import Intro from '../components/HomePage/Intro'
-import Resume from '../components/HomePage/Resume'
+import Resume from './Resume'
 import Showcase from '../components/HomePage/Showcase'
-import useIsVisible from '../components/useIsVisible'
+import useIsVisible from '../components/Hooks/useIsVisible'
+import Contact from '../components/HomePage/Contact'
+import About from '../components/HomePage/About'
 
-export const Home = ({ children }) =>
+const Home = ({ children }) =>
 {
 	const introRef= useRef(null);
 	const resumeRef= useRef(null);
 	const showRef= useRef(null);
-	const isIntroVisible = useIsVisible(introRef)
-	const isResumeVisible = useIsVisible(resumeRef)
-	const isShowVisible = useIsVisible(showRef)
+	// const isIntroVisible = useIsVisible(introRef)
+	// const isResumeVisible = useIsVisible(resumeRef)
+	// const isShowVisible = useIsVisible(showRef)
 
-	const doScroll = (ref) =>
-	{
-		console.log(ref)
-		ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-	}
+	// const doScroll = (ref) =>
+	// {
+	// 	console.log(ref)
+	// 	ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	// }
 
     return (
 		<>
@@ -32,8 +34,9 @@ export const Home = ({ children }) =>
 		</PageNavContainer> */}
 		<Container>
 			<Intro innerRef={introRef}/>
-			<Resume innerRef={resumeRef}/>
+			<About/>
 			<Showcase innerRef={showRef}/>
+			<Contact/>
 		</Container>
 		</>
     )
@@ -71,3 +74,4 @@ const Anchor = styled.div`
 	left: ${props => props.active ? "0px" : "50px"};
 	transition: all 0.5s;
 `
+export default Home;

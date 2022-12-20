@@ -5,12 +5,13 @@ import {
 	Routes,
 	Navigate,
 } from "react-router-dom";
-import { Baseview } from './components/Skeleton/Baseview';
+import Baseview from './components/Skeleton/Baseview';
 import Page404 from "./views/404";
-import { Contact } from "./views/Contact";
-import { Home } from "./views/Home";
-import { ProjectDemo } from "./views/ProjectDemo";
-import { Projects } from "./views/Projects";
+import Home from "./views/Home";
+import Projects from "./views/Projects";
+import PortfolioItem from "./views/PortfolioItem";
+import Resume from "./views/Resume";
+
 const App = () => {
 
   return (
@@ -19,8 +20,8 @@ const App = () => {
       <Routes>
         {/* <Route path="/test2" element={<Route1/>}/> */}
         <Route path="/home" element={<Home/>}/>
-        <Route path="/contact" element={<Contact/>}/>
-        <Route path="/projects/:name" element={<ProjectDemo/>}/>
+        <Route path="/resume" element={<Resume/>}/>
+        <Route path="/projects/:project" element={<PortfolioItem/>}/>
         <Route path="/projects" element={<Projects/>}/>
         <Route
 			path="/"
