@@ -16,13 +16,26 @@ export const ProjectTile = ({ projectsData, project }) =>
 						{ projectsData[project].lang.map((lang) => lang) }
 					</WrappedRow>
 				<Overlay>
+					<div>
+
 					<ProjectTitle>{projectsData[project].name}</ProjectTitle>
+					{projectsData[project].link && <Source href={projectsData[project].link}>source code</Source>}
+					</div>
 					<ProjectDesc>{projectsData[project].description}</ProjectDesc>
 				</Overlay>
 				</Project>
 			</ProjectContainer>
 	)
 }
+
+const Source = styled.a
+`
+	display: flex;
+	color: #B54E4E;
+	text-align: center;
+	justify-content: center;
+	text-decoration: none;
+`
 
 const Overlay = styled.div`
 	display:flex;

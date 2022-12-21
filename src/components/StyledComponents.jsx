@@ -14,6 +14,10 @@ export const Title = styled.div`
 export const Link = styled.span`
 	color: ${props =>props.theme.colors.highlight};
 	text-decoration:none;
+	&:hover {
+		color: white;
+	}
+	display: inline;
 `
 
 export const BaseText = styled.span`
