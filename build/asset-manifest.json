@@ -1,22 +1,33 @@
 {
   "files": {
     "main.css": "/static/css/main.4efb37a3.css",
-    "main.js": "/static/js/main.cc2d71ee.js",
-    "static/media/Resume.pdf": "/static/media/Resume.8b3d0962925ea51eb820.pdf",
-    "static/media/Mongo.svg": "/static/media/Mongo.ee855297fd90f6e986dd07885e7dbc50.svg",
-    "static/media/sphere.png": "/static/media/sphere.787c735f38b0d2c7da9a.png",
-    "static/media/Nodejs.svg": "/static/media/Nodejs.25a50a77937c3662fdd9c71316142cf7.svg",
-    "static/media/spherecube.png": "/static/media/spherecube.08bfcc65043f0124bde3.png",
+    "main.js": "/static/js/main.98e11f02.js",
+    "static/media/bd_logo.png": "/static/media/bd_logo.089bb7c37c582e791ae7.png",
+    "static/media/Lootbox_logo.png": "/static/media/Lootbox_logo.277b5cc9b17e83f1a783.png",
+    "static/media/edge.jpg": "/static/media/edge.349f5147e4856138c0b3.jpg",
+    "static/media/fractal_logo.jpg": "/static/media/fractal_logo.42871bbe380ac1027424.jpg",
+    "static/media/Resume.pdf": "/static/media/Resume.c3326846c524e771a0f0.pdf",
+    "static/media/SDL_logo.png": "/static/media/SDL_logo.1aa489e7cf3cd9026dc8.png",
+    "static/media/picture.jpg": "/static/media/picture.edb683cbc0cd90948c39.jpg",
+    "static/media/SDL.svg": "/static/media/SDL.fec943f06d61a38c8e21bda9f0298959.svg",
     "static/media/email.svg": "/static/media/email.51d0a4a234e31379b146019d2007ce96.svg",
+    "static/media/Mongo.svg": "/static/media/Mongo.c3dc0a4a3eb21b1c0ef0c4c14ac2792a.svg",
     "static/media/github.svg": "/static/media/github.eafb5ee5fb05f49e73bb2f7bd6da2dec.svg",
     "static/media/Python.svg": "/static/media/Python.7cb5a00bcf6771bdc4813221ec6af506.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.2345301b89d6974c6050e4c295fa30f6.svg",
     "static/media/C.svg": "/static/media/C.8ce4cbda7b3cde05bd4e96822aeb4753.svg",
+    "static/media/rad_logo.svg": "/static/media/rad_logo.d6aa9334473fc124de823b144d497c3a.svg",
+    "static/media/Nodejs.svg": "/static/media/Nodejs.b109dc3037891f2b0a7d4e5dfa21e358.svg",
     "static/media/Reactjs.svg": "/static/media/Reactjs.07795d84a912b3560f539b92dca45b75.svg",
     "static/media/JS.svg": "/static/media/JS.6bdd128aaf5be7a6cd717124cab8059a.svg",
+    "static/media/VsCode.svg": "/static/media/VsCode.7bd8150e384d453b16af3119fbc5c531.svg",
     "index.html": "/index.html",
-    "static/media/X.svg": "/static/media/X.0451a6bda3b7ee5f918c339eb076ffc4.svg",
+    "static/media/Solidity.svg": "/static/media/Solidity.8fe127ae889dda9e47ebef963c37b449.svg",
+    "static/media/ray_logo.svg": "/static/media/ray_logo.dfd60aed82d458c4b7439749bb5f1cd3.svg",
+    "static/media/Unity.svg": "/static/media/Unity.a4226e82ebb6b2ddaf1759c7f4b484c1.svg",
+    "static/media/X.svg": "/static/media/X.fb4d3516cd0ad52389b7bae599f1ed83.svg",
     "static/media/HUDLefts.svg": "/static/media/HUDLefts.b4e3e511ad98d37ba7d4e67d15ce9f90.svg",
+    "static/media/fdf_logo.svg": "/static/media/fdf_logo.c17c8e6f5599437cb99e7ad5f41dfa75.svg",
     "static/media/HUDTop.svg": "/static/media/HUDTop.21ddb3f947e74830df7d48fdeb37aa67.svg",
     "static/media/MenuContainer.svg": "/static/media/MenuContainer.ed78dec4990ca8b2c5506a30ddbe7667.svg",
     "static/media/IconContainer.svg": "/static/media/IconContainer.102dae5febb452c7da148c1cf4bc4513.svg",
@@ -26,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.4efb37a3.css",
-    "static/js/main.cc2d71ee.js"
+    "static/js/main.98e11f02.js"
   ]
 }
