@@ -11,7 +11,7 @@ export const Title = styled.div`
 		font-size: 48px;
 	}
 `
-export const Link = styled.span`
+export const Link = styled.a`
 	color: ${props =>props.theme.colors.highlight};
 	text-decoration:none;
 	&:hover {

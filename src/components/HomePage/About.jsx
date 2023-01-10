@@ -43,7 +43,7 @@ const About = ({ innerRef }) =>
 				<br/>
 					Although most of <Link href="/projects">my projects</Link> are written in the C programming language, I'm also proficient in Python, JS, shell script and various tools and frameworks
 				</Text>
-				<Button> Check out my resume</Button>
+				<Button href="/resume"> Check out my resume</Button>
 			</Col>
 		</Container>
 	)
@@ -78,7 +78,7 @@ const PicDiv = styled.div`
 		min-width:180px;
 	}
 `
-const Button = styled.div`
+const Button = styled.a`
 	display:flex;
 	cursor: pointer;
 	border-radius: 8px;

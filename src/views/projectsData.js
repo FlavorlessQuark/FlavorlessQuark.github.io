@@ -101,6 +101,13 @@ export const projectsData = {
 		hasDemo: true,
 		logo: FDFLogo,
 		short: "Renders .obj files",
+		module: "renderer",
+		controls: [
+			["Arrows/WASD", "Rotate"],
+			["R"," Resert mesh transforms"],
+			["t", "Toggle trace mode"]
+			["Shift + t", "Reset trace"]
+			],
 		description: <Container>
 			<Text> This project once fully finished and optimized will be added to my  game engine as its 3D renderer. I am planning to also add .fbx support </Text>
 			<Text> Demo available <Link href="/projects/renderer"> here </Link> </Text>

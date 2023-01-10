@@ -52,8 +52,8 @@ const Overlay = styled.div`
 		opacity: 1;
 	}
 		@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-			height: 250px;
-			width: 285px;
+			height: 380px;
+			width: 300px;
 	}
 
 `
@@ -65,8 +65,8 @@ const ProjectContainer = styled.div`
 	height: 400px;
 	text-align: center;
 		@media only screen and (max-device-width : ${props =>props.theme.mobile}px) {
-			height: 250px;
-			width: 285px;
+			height: 380px;
+			width: 300px;
 	}
 `
 // rgb(233, 35, 111)

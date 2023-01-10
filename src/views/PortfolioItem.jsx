@@ -38,10 +38,14 @@ const PortfolioItem = () =>
 					<FeatureTitle>{projectsData[project].title}</FeatureTitle>
 					<Canvas id="canvas"/>
 					<Source href={projectsData[project].source}> Source Code </Source>
+					<Controls>{
+						projectsData[project].controls.map((elem) =>
+						<div>
+							{"[" + elem[0] +"]" + " : " + elem[1]}
+						</div>
+						)
+					}</Controls>
 					</ProjectBody>
-					<TabContainer>
-						<Tab> Demo </Tab>
-					</TabContainer>
 				</ProjectContainer>
 			}
 		</Container>
@@ -76,6 +80,18 @@ const Container = styled.div`
 	align-items:center;
 	width:100%;
 	justify-content: space-between;
+	padding-top: 72px;
+
+`
+
+const Controls = styled.div`
+	width: 75%;
+	color: white;
+	text-align: center;
+
+`
+
+const Desc = styled.div`
 
 `
 
